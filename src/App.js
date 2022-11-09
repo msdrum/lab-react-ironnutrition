@@ -8,7 +8,7 @@ function App() {
   const [allFoods, setAllFoods] = useState(foods);
 
   return (
-    <div>
+    <div className="foods-menu">
       {allFoods.map((food) => {
         return (
           <FoodBox
