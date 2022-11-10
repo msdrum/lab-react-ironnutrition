@@ -1,7 +1,7 @@
 import { Divider, Input } from 'antd';
 import { useState } from 'react';
 
-function AddFoodForm() {
+function AddFoodForm({ allFoods, setAllFoods }) {
   const [form, setForm] = useState({
     name: '',
     image: '',
@@ -9,8 +9,16 @@ function AddFoodForm() {
     servings: 0,
   });
 
-  function handleChange(event) {}
+  function handleChange(event) {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  }
   // console.log(form);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    //é responsável por guardar o form preenchido em algum lugar -> allFoods
+    setAllFoods([...allFoods, form]);
+  }
   return (
     <form className="form-pai">
       <Divider>Add Food Entry</Divider>
@@ -47,7 +55,9 @@ function AddFoodForm() {
         onChange={handleChange}
       />
 
-      <button type="submit">Create</button>
+      <button type="submit" onClick={handleSubmit}>
+        Create
+      </button>
     </form>
   );
 }

@@ -19,8 +19,9 @@ function App() {
   return (
     //div Pai:
     <div className="conatiner-pai">
-      <AddFoodForm />
+      <AddFoodForm allFoods={allFoods} setAllFoods={setAllFoods} />
       {/* div da Search Bar */}
+
       <SearchBar search={search} setSearch={setSearch} />
 
       <Row style={{ width: '100%', justifyContent: 'center' }}>
