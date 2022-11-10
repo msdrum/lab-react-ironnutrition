@@ -18,6 +18,14 @@ function AddFoodForm({ allFoods, setAllFoods }) {
     event.preventDefault();
     //é responsável por guardar o form preenchido em algum lugar -> allFoods
     setAllFoods([...allFoods, form]);
+
+    //limpar o form
+    setForm({
+      name: '',
+      image: '',
+      calories: 0,
+      servings: 0,
+    });
   }
   return (
     <form className="form-pai">
